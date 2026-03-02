@@ -15,27 +15,33 @@ At this stage the application:
 import java.util.Scanner;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
+        // Déclaration et initialisation de la chaîne d'entrée [cite: 33, 34]
+        String input = "radar";
 
-        // Take input from user
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
+        // 1. Conversion de la chaîne en tableau de caractères (char[]) [cite: 6, 35, 36]
+        char[] chars = input.toCharArray();
 
-        // Assume it is a palindrome
+        // 2. Initialisation des pointeurs (Technique Two-Pointer) [cite: 7, 12]
+        int start = 0; // Début du tableau [cite: 37]
+        int end = chars.length - 1; // Fin du tableau [cite: 39]
+
+        // Variable pour stocker le résultat [cite: 40, 41]
         boolean isPalindrome = true;
 
-        // Loop only till half the string length
-        for (int i = 0; i < input.length() / 2; i++) {
-            // Compare character from start with character from end
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+        // 3. Boucle de comparaison jusqu'à ce que les pointeurs se croisent [cite: 42]
+        while (start < end) {
+            // Comparaison des caractères aux positions start et end [cite: 8, 21]
+            if (chars[start] != chars[end]) {
                 isPalindrome = false;
-                break;
+                break; // Sortie immédiate si une différence est trouvée
             }
+            // Déplacement des pointeurs vers le centre
+            start++;
+            end--;
         }
 
-        // Print true or false
-        System.out.println(isPalindrome);
-        {}
-        scanner.close();
+        // 4. Affichage du résultat [cite: 21, 44, 45]
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome?: " + isPalindrome);
     }
 }
