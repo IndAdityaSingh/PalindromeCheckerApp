@@ -13,35 +13,35 @@ At this stage the application:
 @Version 1.0
  */
 import java.util.Scanner;
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        // Déclaration et initialisation de la chaîne d'entrée [cite: 33, 34]
-        String input = "radar";
+        // Déclarer et initialiser la chaîne d'entrée [cite: 78]
+        String input = "noon";
 
-        // 1. Conversion de la chaîne en tableau de caractères (char[]) [cite: 6, 35, 36]
-        char[] chars = input.toCharArray();
+        // Créer une pile (Stack) pour stocker les caractères [cite: 79, 80]
+        Stack<Character> stack = new Stack<>();
 
-        // 2. Initialisation des pointeurs (Technique Two-Pointer) [cite: 7, 12]
-        int start = 0; // Début du tableau [cite: 37]
-        int end = chars.length - 1; // Fin du tableau [cite: 39]
-
-        // Variable pour stocker le résultat [cite: 40, 41]
-        boolean isPalindrome = true;
-
-        // 3. Boucle de comparaison jusqu'à ce que les pointeurs se croisent [cite: 42]
-        while (start < end) {
-            // Comparaison des caractères aux positions start et end [cite: 8, 21]
-            if (chars[start] != chars[end]) {
-                isPalindrome = false;
-                break; // Sortie immédiate si une différence est trouvée
-            }
-            // Déplacement des pointeurs vers le centre
-            start++;
-            end--;
+        // 1. Pousser chaque caractère de la chaîne dans la pile (Push Operation) [cite: 51, 56, 81, 82]
+        for (char c : input.toCharArray()) {
+            stack.push(c);
         }
 
-        // 4. Affichage du résultat [cite: 21, 44, 45]
-        System.out.println("Input: " + input);
-        System.out.println("Is Palindrome?: " + isPalindrome);
+        // Supposer que c'est un palindrome au départ [cite: 83, 84]
+        boolean isPalindrome = true;
+
+        // 2. Parcourir à nouveau la chaîne originale et comparer avec les éléments sortis (Pop) [cite: 52, 57, 85, 86]
+        for (char c : input.toCharArray()) {
+            // Pop retire les caractères dans l'ordre inverse [cite: 57, 68]
+            if (c != stack.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // 3. Afficher le résultat [cite: 53, 69]
+        System.out.println("Input: " + input); // [cite: 89]
+        System.out.println("Is Palindrome?: " + isPalindrome); // [cite: 90]
     }
 }
