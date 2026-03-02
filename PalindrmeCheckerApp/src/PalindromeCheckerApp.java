@@ -35,7 +35,7 @@ public class PalindromeCheckerApp {
 
         // Print true or false
         System.out.println(isPalindrome);
-
+        {}
         scanner.close();
     }
 }
