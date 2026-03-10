@@ -2,7 +2,7 @@ package src;
 
 import java.util.LinkedList;
 
-public class UseCase8PalindromeCheckerApp {
+    public class UseCase9PalindromeCheckerApp {
 
     public static void main(String[] args) {
         String input = "level";
